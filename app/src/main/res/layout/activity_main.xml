@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image0"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:background="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="TODO"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- The default image is really two images stacked;
+         Look in res/drawable for the two images
+         -->
+        <ImageView
+            android:onClick="imageClick"
+            android:id="@+id/image1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_launcher_background"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/image2"
+             />
+
+        <!-- Second Image -->
+        <ImageView
+            android:onClick="imageClick"
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_launcher_background"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/image1"
+            app:layout_constraintEnd_toStartOf="@id/image3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+             />
+
+        <!-- Third Image -->
+        <ImageView
+            android:onClick="imageClick"
+            android:id="@+id/image3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_launcher_background"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toEndOf="@id/image2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+             />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button1"
+        android:onClick="takePicture"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:text="Take Picture"
+        android:layout_gravity="center"
+        android:background="#68509a"
+        android:textColor="#FFFFFF"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:onClick="deleteAllPictures"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:text="Delete All Pictures"
+        android:layout_gravity="center"
+        android:background="#FF0000"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv"
+        android:text="Number of pictures:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        />
+
+</LinearLayout>
